@@ -1,0 +1,23 @@
+{
+  "name": "sistema-mensajeria-oim",
+  "version": "1.0.0",
+  "description": "Sistema de envío de mensajes SMS para OIM Guatemala",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build completo'",
+    "dev": "echo 'Modo desarrollo - usar Netlify Dev'"
+  },
+  "dependencies": {
+    "twilio": "^4.0.0"
+  },
+  "keywords": [
+    "sms",
+    "twilio",
+    "guatemala",
+    "oim",
+    "mensajeria",
+    "verificacion"
+  ],
+  "author": "OIM Guatemala",
+  "license": "MIT"
+}

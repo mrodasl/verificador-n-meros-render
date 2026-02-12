@@ -1,0 +1,34 @@
+[build]
+  publish = "."
+  command = "echo 'No build command needed'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NODE_OPTIONS = "--enable-source-maps"
+
+# Configuración básica de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Logs detallados
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["twilio"]
+  
+[dev]
+  framework = "#static"
+  targetPort = 8080
