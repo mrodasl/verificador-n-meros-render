@@ -704,7 +704,7 @@ async function monitorMessageStatus(messageSid, phoneNumber, resultItem) {
             console.log(`🔄 Verificación MEJORADA (intento ${attempts}/${maxAttempts}) para: ${phoneNumber}`);
             
             // CONSULTA DIRECTA A TWILIO - FORZAR ACTUALIZACIÓN
-            const statusResponse = await fetch(`/.netlify/functions/send-sms?messageSid=${messageSid}&force=true&t=${Date.now()}`);
+            const statusResponse = await fetch(`/api/message-status?messageSid=${messageSid}&t=${Date.now()}`);
             
             if (statusResponse.ok) {
                 const statusData = await statusResponse.json();
@@ -877,7 +877,7 @@ function createResultItem(number, status, message) {
 
 // FUNCIÓN MEJORADA: Envío de verificación con manejo de estados
 async function sendVerificationRequest(phoneNumber, message) {
-    const backendUrl = '/.netlify/functions/send-sms';
+    const backendUrl = '/api/send-sms'; /
     
     try {
         console.log(`🌐 Enviando solicitud MEJORADA a backend para: ${phoneNumber}`);
@@ -1005,3 +1005,4 @@ window.addNewUser = addNewUser;
 window.deleteUser = deleteUser;
 window.updateSessionTimeout = updateSessionTimeout;
 window.updateMessageCounter = updateMessageCounter;
+
